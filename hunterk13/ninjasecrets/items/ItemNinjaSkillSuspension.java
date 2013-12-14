@@ -14,6 +14,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 
 	private boolean activated = false;
+	private boolean isNew = false;
 	
 	public ItemNinjaSkillSuspension(int par1) {
 		super(par1);
@@ -29,18 +30,23 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 		}else{
 			this.activated = false;
 		}
+		System.out.println(this.activated);
         return par1ItemStack;
     }
 	
-	@Override
-	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
+		/*if (this.isNew == false) {
+			par1ItemStack.setItemDamage(100);
+			this.isNew = true;
+		}
 		if (par1ItemStack.getItemDamage() > 0 && this.activated == true) {
 			((EntityLiving)par3Entity).addPotionEffect(new PotionEffect(13, 10, 0, true));
 			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() - 1);
 		}else if (par1ItemStack.getItemDamage() <= 0 && this.activated == true) {
 			this.activated = false;
-		}
-	}
+			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() + 1);
+		}else{
+			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() + 1);
+		}*/
 	
 	@Override
 	@SideOnly(Side.CLIENT)
