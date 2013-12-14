@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.world.World;
@@ -16,25 +17,33 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 
 	//private boolean activated = false;
 	//private boolean inUse = false;
-	int oldFood = -987;
-	long h = -987; 
+	//int oldFood = -987;
+	//long h = -987; 
 	
 	public ItemNinjaSkillSuspension(int par1) {
 		super(par1);
 		setCreativeTab(CreativeTabs.tabCombat);
 		setMaxStackSize(1);
-		setMaxDamage(500);
+		setMaxDamage(1800);
+	}
+	
+	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		NBTTagCompound tag = getTagCompound(par1ItemStack);
+		tag.setInteger("oldFood", -987);
+		tag.setLong("oldSat", -987);
+        par1ItemStack.setTagCompound(tag);
 	}
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
+		
 		/*this.inUse = true;
 		if (par1ItemStack.getItemDamage() < 500) {
 			System.out.println("2.1");
 			this.activated = true;
 		}*/
-		if (par2World.getTotalWorldTime() +- this.h > 10) {
+		if (par2World.getTotalWorldTime() - tag.getLong("oldSat") > 10) {
 			this.oldFood = -987;
 		}
 		if (par1ItemStack.getItemDamage() < par1ItemStack.getMaxDamage()/* && this.activated == true*/) {
@@ -76,5 +85,14 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 		itemIcon = register.registerIcon(Items.TextureLocation + ":" + Items.SuspensionIcon);
 	}
 	
+	private NBTTagCompound getTagCompound(ItemStack stack) {
+        NBTTagCompound nbt;
+        if (stack.getTagCompound() != null) {
+            nbt = stack.getTagCompound();
+        } else {
+            nbt = new NBTTagCompound();
+        }
+        return nbt;
+    }
 	
 }
