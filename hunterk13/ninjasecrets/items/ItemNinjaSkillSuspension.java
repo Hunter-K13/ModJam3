@@ -1,5 +1,8 @@
 package ninjasecrets.items;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -18,5 +21,12 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
     {
         return par1ItemStack;
     }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister register) {
+		itemIcon = register.registerIcon(Items.TextureLocation + ":" + Items.SuspensionIcon);
+	}
+	
 	
 }
