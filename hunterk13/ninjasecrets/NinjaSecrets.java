@@ -1,5 +1,7 @@
 package ninjasecrets;
 
+import ninjasecrets.config.ConfigHandler;
+import ninjasecrets.items.Items;
 import ninjasecrets.network.PacketHandler;
 import ninjasecrets.proxies.CommonProxy;
 import cpw.mods.fml.common.Mod;
@@ -7,7 +9,6 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
@@ -24,11 +25,12 @@ public class NinjaSecrets {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent preInit) {
-		
+		ConfigHandler.init(preInit.getSuggestedConfigurationFile());
+		Items.init();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent init) {
-		
+		Items.addNames();
 	}
 }
