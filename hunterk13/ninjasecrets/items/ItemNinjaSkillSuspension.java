@@ -15,7 +15,7 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 
 	private boolean activated = false;
 	private boolean inUse = false;
-	private boolean isNew = false;
+	private boolean isNew = true;
 	
 	public ItemNinjaSkillSuspension(int par1) {
 		super(par1);
@@ -27,28 +27,41 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
 		this.inUse = true;
-		//if (par1ItemStack.getItemDamage() > 0 && this.activated == true) {
+		if (this.isNew == true) {
+			par1ItemStack.setItemDamage(1000);
+			this.isNew = false;
+			System.out.println("1");
+		}
+		if (par1ItemStack.getItemDamage() == 1000) {
+			System.out.println("2.1");
+			this.activated = true;
+		}
+		if (par1ItemStack.getItemDamage() > 0 && this.activated == true) {
 			par3EntityPlayer.addPotionEffect(new PotionEffect(13, 10, 0, true));
-			//par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() - 1);
-		//}else{
-			//this.activated = false;
-		//}
+			System.out.println("2");
+			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() - 1);
+		}else{
+			this.activated = false;
+			System.out.println("3");
+		}
         return par1ItemStack;
     }
 	
 	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4) {
 		this.inUse = false;
+		System.out.println("4");
 		if (par1ItemStack.getItemDamage() <= 0) {
 			do {
 				par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() + 10);
-			}while(par1ItemStack.getItemDamage() < 100);
+			}while(par1ItemStack.getItemDamage() < 1000);
 			this.activated = true;
 			return;
 		}
 		this.activated = true;
 		do {
 			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() + 10);
-		}while(par1ItemStack.getItemDamage() < 100 && this.inUse == false);
+		}while(par1ItemStack.getItemDamage() < 1000 && this.inUse == false);
+		System.out.println("5");
 	}
 	
 		/*if (this.isNew == false) {
