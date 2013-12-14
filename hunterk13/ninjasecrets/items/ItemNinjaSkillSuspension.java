@@ -7,62 +7,54 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 
-	private boolean activated = false;
-	private boolean inUse = false;
-	private boolean isNew = true;
+	//private boolean activated = false;
+	//private boolean inUse = false;
+	int oldFood = -987;
+	long h = -987; 
 	
 	public ItemNinjaSkillSuspension(int par1) {
 		super(par1);
 		setCreativeTab(CreativeTabs.tabCombat);
 		setMaxStackSize(1);
+		setMaxDamage(500);
 	}
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-		this.inUse = true;
-		if (this.isNew == true) {
-			par1ItemStack.setItemDamage(1000);
-			this.isNew = false;
-			System.out.println("1");
-		}
-		if (par1ItemStack.getItemDamage() == 1000) {
+		/*this.inUse = true;
+		if (par1ItemStack.getItemDamage() < 500) {
 			System.out.println("2.1");
 			this.activated = true;
+		}*/
+		if (par2World.getTotalWorldTime() +- this.h > 10) {
+			this.oldFood = -987;
 		}
-		if (par1ItemStack.getItemDamage() > 0 && this.activated == true) {
+		if (par1ItemStack.getItemDamage() < par1ItemStack.getMaxDamage()/* && this.activated == true*/) {
 			par3EntityPlayer.addPotionEffect(new PotionEffect(13, 10, 0, true));
+			//par3EntityPlayer.addPotionEffect(new PotionEffect(8, 10, 127, true));
+			par3EntityPlayer.addPotionEffect(new PotionEffect(2, 10, 2, true));
+			if(oldFood != -987) {
+				par3EntityPlayer.getFoodStats().setFoodLevel(oldFood);
+			}
 			System.out.println("2");
-			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() - 1);
-		}else{
-			this.activated = false;
+			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() + 1);
+			oldFood = par3EntityPlayer.getFoodStats().getFoodLevel();
+		}else if ((par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage()) <= 0) {
+			//this.activated = false;
 			System.out.println("3");
+			par1ItemStack.stackSize = 0;
 		}
+		h = par2World.getTotalWorldTime();
         return par1ItemStack;
     }
-	
-	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4) {
-		this.inUse = false;
-		System.out.println("4");
-		if (par1ItemStack.getItemDamage() <= 0) {
-			do {
-				par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() + 10);
-			}while(par1ItemStack.getItemDamage() < 1000);
-			this.activated = true;
-			return;
-		}
-		this.activated = true;
-		do {
-			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() + 10);
-		}while(par1ItemStack.getItemDamage() < 1000 && this.inUse == false);
-		System.out.println("5");
-	}
 	
 		/*if (this.isNew == false) {
 			par1ItemStack.setItemDamage(100);
