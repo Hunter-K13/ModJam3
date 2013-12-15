@@ -17,7 +17,7 @@ public class ItemNinjaSkillBase extends Item{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister register) {
-		itemIcon = register.registerIcon(Items.TextureLocation + ":" + Items.SuspensionIcon);
+		itemIcon = register.registerIcon(Items.TextureLocation + ":" + Items.SkillIcon);
 	}
 
 }
