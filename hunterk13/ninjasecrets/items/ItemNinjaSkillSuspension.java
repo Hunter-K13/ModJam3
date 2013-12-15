@@ -35,7 +35,7 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-		NBTTagCompound tag = getTagCompound(par1ItemStack);
+		NBTTagCompound tag = par1ItemStack.getTagCompound();
 		/*this.inUse = true;
 		if (par1ItemStack.getItemDamage() < 500) {
 			System.out.println("2.1");
@@ -88,8 +88,8 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 	public void registerIcons(IconRegister register) {
 		itemIcon = register.registerIcon(Items.TextureLocation + ":" + Items.SuspensionIcon);
 	}
-	
-	private NBTTagCompound getTagCompound(ItemStack stack) {
+
+	/*private NBTTagCompound getTagCompound(ItemStack stack) {
         NBTTagCompound nbt;
         if (stack.getTagCompound() != null) {
             nbt = stack.getTagCompound();
@@ -97,6 +97,6 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
             nbt = new NBTTagCompound();
         }
         return nbt;
-    }
+    }*/
 	
 }
