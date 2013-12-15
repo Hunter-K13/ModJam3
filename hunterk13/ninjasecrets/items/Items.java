@@ -9,7 +9,7 @@ public class Items {
 	
 	//public static Item[] items; 
 	public static Item suspension/* = items[0]*/;
-	
+	public static Item vanish;
 	//for(int i = 0; i < items.length; i++) {
 		
 	//}
@@ -21,11 +21,20 @@ public class Items {
 	public static final String SuspensionName = "Ninja Suspension";
 	public static final String SuspensionIcon = "suspension";
 	
+	public static int VanishID;
+	public static final String VanishKey = "Vanish";
+	public static final int VanishDefault = 20132;
+	public static final String VanishUnlocalized = "vanish";
+	public static final String VanishName = "Ninja Vanish";
+	public static final String VanishIcon = "suspension";
+	
 	public static void init() {
 		suspension = new ItemNinjaSkillSuspension(SuspensionID);
+		vanish = new ItemNinjaSkillVanish(VanishID);
 	}
 	
 	public static void addNames() {
 		LanguageRegistry.addName(suspension, SuspensionName);
+		LanguageRegistry.addName(vanish, VanishName);
 	}
 }

@@ -12,6 +12,7 @@ public class ConfigHandler {
 		config.load();
 		
 		Items.SuspensionID = config.getItem(Items.SuspensionKey, Items.SuspensionDefault).getInt() - 256;
+		Items.VanishID = config.getItem(Items.VanishKey, Items.VanishDefault).getInt() - 256;
 		
 		config.save();
 	}
