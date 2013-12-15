@@ -1,15 +1,11 @@
 package ninjasecrets.items;
 
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import ninjasecrets.NinjaSecrets;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase {
 
@@ -76,7 +72,7 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase {
 		}*/
 	
 	
-	/*private NBTTagCompound getTagCompound(ItemStack stack) {
+	private NBTTagCompound getTagCompound(ItemStack stack) {
         NBTTagCompound nbt;
         if (stack.getTagCompound() != null) {
             nbt = stack.getTagCompound();
@@ -84,6 +80,6 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase {
             nbt = new NBTTagCompound();
         }
         return nbt;
-    }*/
+    }
 	
 }
