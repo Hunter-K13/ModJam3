@@ -13,12 +13,9 @@ public class CreativeTabNinja extends CreativeTabs {
         super(tabId, label);
     }
     
-    /**
-     * TODO This one returns a stack instead of an ID maybe we should use this instead?
-     */
     @Override
     @SideOnly(Side.CLIENT)
     public Item getTabIconItem() {
-        return Items.base;
+        return Items.suspend;
     }
 }

@@ -1,29 +1,22 @@
 package ninjasecrets.items;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Items {
-	
-	public static final String TextureLocation = "ninjasecrets";
 
-	public static Item base;
-	public static Item suspension;
+	public static Item suspend;
 	public static Item vanish;
-
-	public static final String SkillIcon = "skill";
-	
-	public static int SuspensionID;
-	public static final String SuspensionKey = "Suspension";
-	public static final int SuspensionDefault = 20131;
-	
-	public static int VanishID;
-	public static final String VanishKey = "Vanish";
-	public static final int VanishDefault = 20132;
 	
 	public static void init() {
-		suspension = new ItemNinjaSkillSuspension(SuspensionID);
-		vanish = new ItemNinjaSkillVanish(VanishID);
-		base = new ItemNinjaSkillBase(-1);
+		suspend = new ItemNinjaSkillSuspension(ItemInfo.SuspendID);
+		vanish = new ItemNinjaSkillVanish(ItemInfo.VanishID);
+	}
+	
+	public static void addNames() {
+		LanguageRegistry.addName(suspend, ItemInfo.SuspendName);
+		LanguageRegistry.addName(vanish, ItemInfo.VanishName);
 	}
 }
