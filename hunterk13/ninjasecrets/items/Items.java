@@ -7,12 +7,8 @@ public class Items {
 	
 	public static final String TextureLocation = "ninjasecrets";
 	
-	//public static Item[] items; 
-	public static Item suspension/* = items[0]*/;
+	public static Item suspension;
 	public static Item vanish;
-	//for(int i = 0; i < items.length; i++) {
-		
-	//}
 	
 	public static int SuspensionID;
 	public static final String SuspensionKey = "Suspension";
@@ -35,6 +31,6 @@ public class Items {
 	
 	public static void addNames() {
 		LanguageRegistry.addName(suspension, SuspensionName);
-		LanguageRegistry.addName(vanish, VanishName);
+		//LanguageRegistry.addName(vanish, VanishName);
 	}
 }

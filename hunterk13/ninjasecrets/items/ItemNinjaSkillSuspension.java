@@ -80,12 +80,7 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() + 1);
 		}*/
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister register) {
-		itemIcon = register.registerIcon(Items.TextureLocation + ":" + Items.SuspensionIcon);
-	}
-
+	
 	/*private NBTTagCompound getTagCompound(ItemStack stack) {
         NBTTagCompound nbt;
         if (stack.getTagCompound() != null) {
