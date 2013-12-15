@@ -1,6 +1,7 @@
 package ninjasecrets.items;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -10,14 +11,14 @@ import ninjasecrets.NinjaSecrets;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
+public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase {
 
 	//private boolean activated = false;
 	//private boolean inUse = false;
 	
 	public ItemNinjaSkillSuspension(int par1) {
 		super(par1);
-		setCreativeTab(NinjaSecrets.ninTab);
+		setCreativeTab(CreativeTabs.tabCombat);
 		setMaxStackSize(1);
 		setMaxDamage(1800);
 	}

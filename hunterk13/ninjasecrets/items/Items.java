@@ -6,7 +6,8 @@ import net.minecraft.item.Item;
 public class Items {
 	
 	public static final String TextureLocation = "ninjasecrets";
-	
+
+	public static Item base;
 	public static Item suspension;
 	public static Item vanish;
 	
@@ -22,15 +23,15 @@ public class Items {
 	public static final int VanishDefault = 20132;
 	public static final String VanishUnlocalized = "vanish";
 	public static final String VanishName = "Ninja Vanish";
-	public static final String VanishIcon = "suspension";
 	
 	public static void init() {
 		suspension = new ItemNinjaSkillSuspension(SuspensionID);
 		vanish = new ItemNinjaSkillVanish(VanishID);
+		base = new ItemNinjaSkillBase(-1);
 	}
 	
 	public static void addNames() {
 		LanguageRegistry.addName(suspension, SuspensionName);
-		//LanguageRegistry.addName(vanish, VanishName);
+		LanguageRegistry.addName(vanish, VanishName);
 	}
 }

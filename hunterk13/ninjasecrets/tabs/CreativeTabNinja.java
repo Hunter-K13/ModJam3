@@ -19,6 +19,6 @@ public class CreativeTabNinja extends CreativeTabs {
     @Override
     @SideOnly(Side.CLIENT)
     public Item getTabIconItem() {
-        return Items.suspension;
+        return Items.base;
     }
 }

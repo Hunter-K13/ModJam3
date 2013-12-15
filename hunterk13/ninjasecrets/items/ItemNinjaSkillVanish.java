@@ -7,7 +7,7 @@ public class ItemNinjaSkillVanish extends ItemNinjaSkillBase {
 
 	public ItemNinjaSkillVanish(int par1) {
 		super(par1);
-		setCreativeTab(NinjaSecrets.ninTab);
+		setCreativeTab(CreativeTabs.tabCombat);
 		setMaxStackSize(1);
 	}
 	
