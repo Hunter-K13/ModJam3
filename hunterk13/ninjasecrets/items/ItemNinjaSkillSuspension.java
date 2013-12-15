@@ -25,12 +25,12 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 		setMaxDamage(1800);
 	}
 	
-	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+	/*public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 		NBTTagCompound tag = getTagCompound(par1ItemStack);
 		tag.setInteger("oldFood", -987);
 		tag.setLong("time", -987);
         par1ItemStack.setTagCompound(tag);
-	}
+	}*/
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
@@ -41,8 +41,13 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 			System.out.println("2.1");
 			this.activated = true;
 		}*/
+		if (tag.getInteger("oldFood") == 0) {
+			tag.setInteger("oldFood", -987);
+			par1ItemStack.setTagCompound(tag);
+		}
 		if (par2World.getTotalWorldTime() - tag.getLong("time") > 10) {
 			tag.setInteger("oldFood", -987);
+			par1ItemStack.setTagCompound(tag);
 		}
 		if (par1ItemStack.getItemDamage() < par1ItemStack.getMaxDamage()/* && this.activated == true*/) {
 			par3EntityPlayer.addPotionEffect(new PotionEffect(13, 10, 0, true));
@@ -60,6 +65,7 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase{
 			par1ItemStack.stackSize--;
 		}
 		tag.setLong("time", par2World.getTotalWorldTime());
+		par1ItemStack.setTagCompound(tag);
         return par1ItemStack;
     }
 	
