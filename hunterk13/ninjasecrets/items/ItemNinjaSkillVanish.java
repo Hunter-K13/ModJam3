@@ -21,9 +21,6 @@ public class ItemNinjaSkillVanish extends ItemNinjaSkillBase {
 		player.addPotionEffect(new PotionEffect(14, 70, 255, true));
 		player.addPotionEffect(new PotionEffect(18, 70, 127, true));
 		player.hurtResistantTime = 70;
-		if (player.getCurrentEquippedItem().itemID == 261 && player.isUsingItem()) {
-			player.dropOneItem(true);
-		}
 		par1ItemStack.stackSize--;
 		return par1ItemStack;
 	}
