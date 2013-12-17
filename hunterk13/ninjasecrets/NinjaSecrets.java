@@ -36,6 +36,6 @@ public class NinjaSecrets {
 	@EventHandler
 	public void init(FMLInitializationEvent init) {
 		Items.addNames();
-		//Items.registerRecipes();
+		Items.registerRecipes();
 	}
 }

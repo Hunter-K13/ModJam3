@@ -13,7 +13,7 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase {
 		super(id);
 		setCreativeTab(NinjaSecrets.ninTab);
 		setMaxStackSize(1);
-		setMaxDamage(1800);
+		setMaxDamage(6000);
 		setUnlocalizedName(ItemInfo.SuspendUnlocal);
 	}
 	
@@ -28,7 +28,6 @@ public class ItemNinjaSkillSuspension extends ItemNinjaSkillBase {
 			}
 			if (par1ItemStack.getItemDamage() < par1ItemStack.getMaxDamage()) {
 				par3EntityPlayer.addPotionEffect(new PotionEffect(13, 10, 0, true));
-				//par3EntityPlayer.addPotionEffect(new PotionEffect(8, 10, 127, true));
 				par3EntityPlayer.addPotionEffect(new PotionEffect(2, 10, 2, true));
 				if(tag.getInteger("oldFood") != -987) {
 					par3EntityPlayer.getFoodStats().setFoodLevel(tag.getInteger("oldFood"));

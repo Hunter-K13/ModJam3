@@ -20,6 +20,7 @@ public class ItemNinjaSkillVanish extends ItemNinjaSkillBase {
 		world.createExplosion(player, player.posX, player.posY, player.posZ, 0, false);
 		player.addPotionEffect(new PotionEffect(14, 70, 255, true));
 		player.addPotionEffect(new PotionEffect(18, 70, 127, true));
+		player.addPotionEffect(new PotionEffect(1, 70, 3, true));
 		player.hurtResistantTime = 70;
 		par1ItemStack.stackSize--;
 		return par1ItemStack;
