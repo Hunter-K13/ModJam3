@@ -1,5 +1,5 @@
 ModJam3
 =======
 
-My entry for ModJam 3
+My crappy entry for ModJam 3
  
